@@ -34,7 +34,7 @@ namespace Xamarin.Forms.GoogleMaps.Clustering
         /// Gets the bucket colors.
         /// </summary>
         /// <value>The bucket colors.</value>
-        public Color[] BucketColors { get; private set; }
+        public Color[] BucketColors { get; set; }
 
         /// <summary>
         /// Gets or sets the color of the renderer text.
@@ -95,11 +95,11 @@ namespace Xamarin.Forms.GoogleMaps.Clustering
             Buckets = new int[] { 10, 50, 100, 200, 1000 };
             BucketColors = new Color[]
             {
-                Color.FromHex("#0099cc"),
-                Color.FromHex("#669900"),
-                Color.FromHex("#ff8800"),
-                Color.FromHex("#cc0000"),
-                Color.FromHex("#9933cc")
+                Color.FromHex("#A22244"),
+                Color.FromHex("#A22244"),
+                Color.FromHex("#A22244"),
+                Color.FromHex("#A22244"),
+                Color.FromHex("#A22244")
             };
 
             RendererTextColor = Color.White;

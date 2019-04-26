@@ -1,4 +1,6 @@
 ﻿using Com.Google.Maps.Android.Clustering;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Xamarin.Forms.GoogleMaps.Clustering.Android
 {
@@ -21,8 +23,14 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.Android
 
         public bool OnClusterClick(ICluster cluster)
         {
-            map.SendClusterClicked(cluster.Items.Count);
-            return false;
+            var items = new List<Position>();
+            foreach(var item in cluster.Items)
+            {
+                var a = item as ClusteredMarker;
+                items.Add(new Position(a.Position.Latitude, a.Position.Longitude));
+            }
+            map.SendClusterClicked(items, cluster.Items.Count, new Position(cluster.Position.Latitude, cluster.Position.Longitude));
+            return true;
         }
 
         public bool OnClusterItemClick(Java.Lang.Object nativeItemObj)

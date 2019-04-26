@@ -16,6 +16,11 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.Android
         private readonly Dictionary<string, NativeBitmapDescriptor> disabledBucketsCache;
         private readonly Dictionary<string, NativeBitmapDescriptor> enabledBucketsCache;
 
+        protected override bool ShouldRenderAsCluster(ICluster p0)
+        {
+            return p0.Size > 1;
+        }
+
         public ClusterRenderer(Context context,
             ClusteredMap map,
             GoogleMap nativeMap,

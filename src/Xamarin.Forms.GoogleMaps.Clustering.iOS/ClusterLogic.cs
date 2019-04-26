@@ -108,7 +108,7 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
         {
             var nativeMarker = new ClusteredMarker
             {
-                Position = outerItem.Position.ToCoord(),
+                MarkerPosition = outerItem.Position.ToCoord(),
                 Title = outerItem.Label,
                 Snippet = outerItem.Address ?? string.Empty,
                 Draggable = outerItem.IsDraggable,
@@ -126,13 +126,13 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
                 nativeMarker.Icon = factory.ToUIImage(outerItem.Icon);
             }
 
-            onMarkerCreating(outerItem, nativeMarker);
+            onMarkerCreating(outerItem, nativeMarker.ConvertToMarket());
 
             outerItem.NativeObject = nativeMarker;
 
             clusterManager.AddItem(nativeMarker);
             OnUpdateIconView(outerItem, nativeMarker);
-            onMarkerCreated(outerItem, nativeMarker);
+            onMarkerCreated(outerItem, nativeMarker.ConvertToMarket());
 
             return nativeMarker;
         }
@@ -143,7 +143,7 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
                 return null;
             var nativeMarker = outerItem.NativeObject as ClusteredMarker;
 
-            onMarkerDeleting(outerItem, nativeMarker);
+            onMarkerDeleting(outerItem, nativeMarker.ConvertToMarket());
 
             nativeMarker.Map = null;
 
@@ -152,7 +152,7 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
             if (ReferenceEquals(Map.SelectedPin, outerItem))
                 Map.SelectedPin = null;
 
-            onMarkerDeleted(outerItem, nativeMarker);
+            onMarkerDeleted(outerItem, nativeMarker.ConvertToMarket());
 
             return nativeMarker;
         }
@@ -189,7 +189,7 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
         private void UpdateSelectedPin(Pin pin)
         {
             if (pin != null)
-                NativeMap.SelectedMarker = (ClusteredMarker)pin.NativeObject;
+                NativeMap.SelectedMarker = (Marker)pin.NativeObject;
             else
                 NativeMap.SelectedMarker = null;
         }
@@ -228,7 +228,14 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
         private bool HandleGmsTappedMarker(MapView mapView, Marker marker)
         {
             if (marker?.UserData is ICluster cluster)
-                return ClusteredMap.SendClusterClicked((int) cluster.Count);
+            {
+                var items = new List<Position>();
+                foreach (var item in cluster.Items)
+                {
+                    items.Add(new Position(item.Position.Latitude, item.Position.Longitude));
+                }
+                return ClusteredMap.SendClusterClicked(items, (int)cluster.Count, new Position(cluster.Position.Latitude, cluster.Position.Longitude));
+            }
             var targetPin = LookupPin(marker);
 
             if (Map.SendPinClicked(targetPin))
@@ -324,7 +331,7 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
         protected override void OnUpdatePosition(Pin outerItem, ClusteredMarker nativeItem)
         {
             if (!withoutUpdateNative)
-                nativeItem.Position = outerItem.Position.ToCoord();
+                nativeItem.MarkerPosition = outerItem.Position.ToCoord();
         }
 
         protected override void OnUpdateType(Pin outerItem, ClusteredMarker nativeItem)

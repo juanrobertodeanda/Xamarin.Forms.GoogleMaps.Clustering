@@ -52,14 +52,15 @@
     </dependencies>
     </metadata>
     <files>
+    Release\netstandard2.0
         <!--Core main-->
-        <file src="Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.dll" target="lib\netstandard2.0" />
+        <file src="C:\Users\nesto\Documents\Github\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.dll" target="lib\netstandard2.0" />
         <!--Core-->
         <file src="Xamarin.Forms.GoogleMaps.Clustering\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.Clustering.dll" target="lib\netstandard2.0" />
 
         <!--Xamarin.Android main-->
-        <file src="Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps.Android\bin\Release\Xamarin.Forms.GoogleMaps.Android.dll" target="lib\MonoAndroid70\Xamarin.Forms.GoogleMaps.Android.dll" />
-        <file src="Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.dll" target="lib\MonoAndroid70\Xamarin.Forms.GoogleMaps.dll" />
+        <file src="C:\Users\nesto\Documents\Github\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps.Android\bin\Release\Xamarin.Forms.GoogleMaps.Android.dll" target="lib\MonoAndroid70\Xamarin.Forms.GoogleMaps.Android.dll" />
+        <file src="C:\Users\nesto\Documents\Github\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.dll" target="lib\MonoAndroid70\Xamarin.Forms.GoogleMaps.dll" />
     
         <!--Xamarin.Android-->
         <file src="Xamarin.Forms.GoogleMaps.Android.Utils\bin\Release\GoogleMapsUtility.dll" target="lib\MonoAndroid70\GoogleMapsUtility.dll" />
@@ -71,7 +72,7 @@
         <file src="Xamarin.Forms.GoogleMaps.Clustering\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.Clustering.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.GoogleMaps.Clustering.dll" />
 
         <!--Xamarin.iOS main-->
-        <file src="Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps.iOS\bin\Release\Xamarin.Forms.GoogleMaps.iOS.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.GoogleMaps.iOS.dll" />
-        <file src="Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.GoogleMaps.dll" />
+        <file src="C:\Users\nesto\Documents\Github\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps.iOS\bin\Release\Xamarin.Forms.GoogleMaps.iOS.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.GoogleMaps.iOS.dll" />
+        <file src="C:\Users\nesto\Documents\Github\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\Xamarin.Forms.GoogleMaps\bin\Release\netstandard2.0\Xamarin.Forms.GoogleMaps.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.GoogleMaps.dll" />
     </files>
 </package>

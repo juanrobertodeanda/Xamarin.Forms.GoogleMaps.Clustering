@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -44,12 +45,12 @@ namespace Xamarin.Forms.GoogleMaps.Clustering
                 PendingClusterRequest = true;
             }
         }
-        
-        internal bool SendClusterClicked(int itemsCount)
+
+        internal bool SendClusterClicked(List<Position> items, int itemsCount, Position position)
         {
-            var args = new ClusterClickedEventArgs(itemsCount);
+            var args = new ClusterClickedEventArgs(items, itemsCount, position);
             ClusterClicked?.Invoke(this, args);
-            return args.Handled;
+            return true;
         }
     }
 }

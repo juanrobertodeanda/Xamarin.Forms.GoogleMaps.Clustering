@@ -13,9 +13,9 @@ namespace Xamarin.Forms.GoogleMaps.Clustering.iOS
     internal class ClusterRendererHandler : DefaultClusterRenderer
     {
         private readonly MapView nativeMap;
-        private const double AnimationDuration = 0.5; 
+        private const double AnimationDuration = 0.3; 
         private float maxClusterZoom = 20;
-        private readonly nuint minimumClusterSize = 5;
+        private readonly nuint minimumClusterSize = 2;
 
         public ClusterRendererHandler(MapView mapView, ClusterIconGenerator iconGenerator)
             : base(mapView, iconGenerator)
